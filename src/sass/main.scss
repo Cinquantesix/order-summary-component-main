@@ -48,7 +48,7 @@ body {
 	height: 100vh;
 	background-color: $primary-color;
 	background-image: url("../assets/pattern-background-desktop.svg");
-	background-repeat: no-repeat;
+	background-repeat: repeat-x;
 	background-position: center top;
 	display: flex;
 	align-items: center;
