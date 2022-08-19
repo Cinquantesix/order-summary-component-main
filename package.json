@@ -7,16 +7,13 @@
 	"scripts": {
 		"build:sass": "sass  --no-source-map src/sass:public/css",
 		"copy:assets": "copyfiles -u 1 ./src/assets/**/* public",
-		// "copy:js": "copyfiles -u 1 ./src/js/**/* public",
 		"copy:html": "copyfiles -u 1 ./src/*.html public",
 		"copy": "npm-run-all --parallel copy:*",
 		"watch:html": "onchange 'src/*.html' -- npm run copy:html",
-		// "watch:js": "onchange 'src/js/**/*' -- npm run copy:js",
 		"watch:sass": "sass  --no-source-map --watch src/sass:public/css",
 		"watch": "npm-run-all --parallel watch:*",
 		"serve": "browser-sync start --server public --files public",
 		"start": "npm-run-all copy --parallel watch serve",
-		// "build:js": "uglifyjs public/js/*.js -o public/js/main.min.js -c",
 		"build:css": "postcss public/css/*.css -u autoprefixer cssnano -r --no-map",
 		"build": "npm-run-all copy:* build:*"
 	},
@@ -29,6 +26,5 @@
 		"onchange": "^7.1.0",
 		"postcss-cli": "^9.1.0",
 		"sass": "^1.49.8",
-		// "uglify-js": "^3.16.3"
 	}
 }
