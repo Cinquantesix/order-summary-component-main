@@ -1,3 +1,34 @@
+// Variables
+
+$primary-color: hsl(225, 100%, 94%);
+$secondary-color: hsl(245, 75%, 52%);
+$hover-color: #766CF1;
+
+$neutral-light: hsl(225, 100%, 98%);
+$neutral-basic: hsl(224, 23%, 55%);
+$neutral-dark: hsl(223, 47%, 23%);
+
+$desktop-font-title: 1.75rem;
+$desktop-font-text: 1rem;
+$desktop-font-small: 0.9375rem;
+$desktop-font-very-small: 0.875rem;
+
+$mobile-font-title: 1.375rem;
+$mobile-font-text: 0.9375rem;
+$mobile-font-small: 0.875rem;
+$mobile-font-very-small: 0.8125rem;
+
+$font-black: 900;
+$font-bold: 700;
+$font-regular: 500;
+
+$mobile-media-queries: 430px;
+$desktop-media-queries: 1440px;
+
+// Fonts
+
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
+
 // reset
 *,
 *::after,
@@ -12,6 +43,139 @@
 }
 
 body {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: "Red Hat Display", sans-serif;
+	width: 100%;
+	height: 100vh;
+	background-color: $primary-color;
+	background-image: url("../assets/pattern-background-desktop.svg");
+	background-repeat: no-repeat;
+	background-position: center top;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	@media screen and (max-width: $mobile-media-queries) {
+		background-image: url("../assets/pattern-background-mobile.svg");
+	}
+}
+
+.order-summary {
+	margin-inline: 1.5rem;
+	background-color: #fff;
+	box-shadow: 0px 40px 40px -20px hsla(228, 87%, 39%, 0.15);
+	max-width: 450px;
+	border-radius: 20px;
+	overflow: hidden;
+	>img {
+		width: 100%;
+		height: 220px;
+		object-fit: cover;
+		@media screen and (max-width: $mobile-media-queries) {
+			height: 160px;
+		}
+	}
+	.order-summary__content {
+		display: grid;
+		grid-template-rows: repeat(1, 1fr);
+		row-gap: 1rem;
+		justify-items: center;
+		margin: 3rem;
+		@media screen and (max-width: $mobile-media-queries) {
+			margin: 1.5rem;
+		}
+		.content__title {
+			font-size: $desktop-font-title;
+			font-weight: $font-black;
+			color: $neutral-dark;
+			@media screen and (max-width: $mobile-media-queries) {
+				font-size: $mobile-font-title;
+			}
+		}
+		.content__details {
+			font-size: $desktop-font-text;
+			font-weight: $font-regular;
+			color: $neutral-basic;
+			text-align: center;
+			line-height: 1.625rem;
+			@media screen and (max-width: $mobile-media-queries) {
+				font-size: $mobile-font-text;
+			}
+		}
+		.content__plan {
+			margin-top: .25rem;
+			width: 100%;
+			background-color: $neutral-light;
+			border-radius: 11px;
+			padding: 1.5625rem;
+			display: flex;
+			align-items: center;
+			gap: 1.25rem;
+			@media screen and (max-width: $mobile-media-queries) {
+				padding: 1rem;
+			}
+			>img {
+				height: 100%;
+				width: auto;
+			}
+			>p{
+				line-height: 1.5rem;
+				color: $neutral-basic;
+				font-weight: $font-regular;
+				>b{
+					font-weight: $font-black;
+					color: $neutral-dark;
+				}
+			}
+			>a {
+				margin-left: auto;
+				font-weight: $font-bold;
+				color: $secondary-color;
+				font-size: $desktop-font-very-small;
+				transition: all .3s ease;
+				text-decoration: none;
+				border-bottom: 1px solid $secondary-color;
+				@media screen and (max-width: $mobile-media-queries) {
+					font-size: $mobile-font-very-small;
+				}
+				&:hover {
+					color: $hover-color;
+					border-bottom: 1px solid rgba($secondary-color,0);
+				}
+			}
+		}
+		.content__accept {
+			width: 100%;
+			padding-block: 1rem;
+			margin-block: 1rem;
+			background-color: $secondary-color;
+			color: #fff;
+			text-align: center;
+			border-radius: 11px;
+			font-weight: $font-black;
+			text-decoration: none;
+			font-size: $desktop-font-small;
+			box-shadow: 0px 20px 20px 0px hsla(245, 75%, 52%, 0.19);
+			transition: all .3s ease;
+			@media screen and (max-width: $mobile-media-queries) {
+				font-size: $mobile-font-small;
+				margin-block: .5rem;
+			}
+			&:hover {
+				background-color: $hover-color;
+			}
+		}
+
+		.content__decline {
+			font-size: $desktop-font-text;
+			font-weight: $font-black;
+			color: $neutral-basic;
+			text-decoration: none;
+			transition: all .3s ease;
+			@media screen and (max-width: $mobile-media-queries) {
+				font-size: $mobile-font-text;
+			}
+			&:hover {
+				color: $neutral-dark;
+			}
+		}
+	}
 }
