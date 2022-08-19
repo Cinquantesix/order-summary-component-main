@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Links
 
-[Add solution URL here](https://github.com/Cinquantesix/order-summary-component-main)
+[solution URL](https://github.com/Cinquantesix/order-summary-component-main)
 [live site URL](https://polite-eclair-5fdd16.netlify.app/)
 
 ## My process
